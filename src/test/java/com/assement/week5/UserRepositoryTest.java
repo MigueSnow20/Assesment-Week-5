@@ -1,7 +1,6 @@
 package com.assement.week5;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.Before;
@@ -26,7 +25,7 @@ public class UserRepositoryTest {
 	
 	@Before
 	public void setUp() {
-	    Edgar = new User("yQ4t5MXsj87t9", "Edgar", "Johns", "Norene39", "hola1234");
+	    Edgar = new User("1", "Edgar", "Johns", "Norene39", "hola1234");
 	}
 	
 	@Test
