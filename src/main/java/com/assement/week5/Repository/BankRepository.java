@@ -1,6 +1,7 @@
 package com.assement.week5.Repository;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,7 @@ public class BankRepository {
 	@Autowired
 	private UserRepository userRepository;
 	
-	List<Bank> accounts = new ArrayList<>();
-	
-	Bank account1 = new Bank("qyHvfrT34Nms","Labadie Bank", 1168.00, userRepository.user);
-	Bank account2 = new Bank("hty23kd3Jm7S","BBVA", 45321.00, userRepository.user);
-	Bank account3 = new Bank("pt45L2S34mnA","Imagin", 96784.00, userRepository.user2);
+	List<Bank> accounts = Arrays.asList(new Bank("qyHvfrT34Nms","Labadie Bank", 1168.00, userRepository.users.get(0)), new Bank("hty23kd3Jm7S","BBVA", 45321.00, userRepository.users.get(0)), new Bank("pt45L2S34mnA","Imagin", 96784.00, userRepository.users.get(1)));
 	
 	public List<Bank> getAccounts(){
 		return accounts;

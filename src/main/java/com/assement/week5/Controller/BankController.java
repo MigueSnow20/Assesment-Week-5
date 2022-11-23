@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.assement.week5.Service.BankService;
@@ -18,15 +20,21 @@ import com.assement.week5.Models.Bank;
 @CrossOrigin("*")
 public class BankController {
 	
-//	Bank bank = new Bank("Labadie Bank", 1168.00, , "O'Hara");
-//	
-//	
-//	@Autowired
-//	private BankService bankService;
-//
-//	@GetMapping("/bankaccounts")
-//	public Bank getBankAccounts(Model model) {
-//		model.addAttribute("list", bankService.getAll());
-//		return bank;
-//	}
+	@Autowired
+	private BankService bankService;
+
+	@GetMapping("/bankaccounts/{id}")
+	public List<Bank> getBankAccounts(@PathVariable("id") String id) {
+		return bankService.getAccountsById(id);
+	}
+	
+	@PostMapping("/bankaccounts/{id}/create")
+	public Bank createBank(@PathVariable("id") String id, Bank bank) {
+		return bankService.createAccount(bank, id);
+	}
+	
+	@PostMapping("/bankaccounts/delete/{id}")
+	public List<Bank> deleteBank(@PathVariable("id") String id) {
+		return bankService.deleteAccount(id);
+	}
 }
