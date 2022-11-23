@@ -36,7 +36,14 @@ public class UserRepository {
 		return user;
 	}
 
-	
+	public User updateUser(String id, User user) {
+		User user1 = findUser(id);
+		user1.setFirstName(user.getFirstName());
+		user1.setLastName(user.getLastName());
+		user1.setEmail(user.getEmail());
+		user1.setPhone(user.getPhone());
+		return user1;
+	}
 	
 
 }

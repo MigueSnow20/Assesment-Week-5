@@ -20,11 +20,11 @@ public class UserService {
 	public User createUser(User user) {
 		return userRepository.create(user);
 	}
-//
-//	public User updateUser(String id, User user) {
-//		return userRepository.updateUser(id, user);
-//	}
-//	
+
+	public User updateUser(String id, User user) {
+		return userRepository.updateUser(id, user);
+	}
+	
 	
 
 }

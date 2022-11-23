@@ -2,6 +2,7 @@ package com.assement.week5;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -42,7 +43,7 @@ public class UserRepositoryTest {
 		String username = user.getUserName();
 		user.setUsername("cambio");
 		repo.updateUser(user.getId(), user);
-		assertEquals(repo.findUser(user.getId()).getUserName(), "cambio");
+		assertNotEquals(repo.findUser(user.getId()).getUserName(), username);
 		
 		
 	}
