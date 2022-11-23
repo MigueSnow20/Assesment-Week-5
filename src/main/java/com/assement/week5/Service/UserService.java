@@ -13,10 +13,10 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	
-//	public User getUser(String id) {
-//		return userRepository.findUser(id);
-//	}
-//	
+	public User getUser(String id) {
+		return userRepository.findUser(id);
+	}
+	
 	public User createUser(User user) {
 		return userRepository.create(user);
 	}

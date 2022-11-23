@@ -20,6 +20,17 @@ public class UserRepository {
 		return users;
 	}
 	
+	public User findUser(String id) {
+		if(user.getId().equals(id)) {
+			return user;
+		}else if(user2.getId().equals(id)){
+			return user2;
+		}else if(user3.getId().equals(id)) {
+			return user3;
+		}
+		return new User(null, null, null, null, null);
+	}
+	
 	public User create(User user) {
 		users.add(user);
 		return user;

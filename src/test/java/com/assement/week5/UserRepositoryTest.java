@@ -1,6 +1,7 @@
 package com.assement.week5;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +19,7 @@ public class UserRepositoryTest {
 	
 	User Edgar;
 	
+	
 	@Autowired
 	private UserRepository repo;
 	
@@ -34,6 +36,16 @@ public class UserRepositoryTest {
 		
 	}
 	
+	@Test
+	public void UpdateUser() {
+		User user = repo.findUser(Edgar.getId());
+		String username = user.getUserName();
+		user.setUsername("cambio");
+		repo.updateUser(user.getId(), user);
+		assertEquals(repo.findUser(user.getId()).getUserName(), "cambio");
+		
+		
+	}
 	
 
 
