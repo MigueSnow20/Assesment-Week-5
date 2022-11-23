@@ -4,22 +4,23 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.assement.week5.Controller.UserController;
 import com.assement.week5.Models.User;
+import com.assement.week5.Repository.UserRepository;
 
 @SpringBootTest
 public class UserControllerTest {
 	
-	User user = new User("yQ4t5MXsj87t9", "Edgar", "Johns", "Norene39", "hola1234", "norene39@gmail.com", 657483261);
+	User user = new User("yQ4t5MXsj87t9", "Edgar", "Johns", "Norene39", "hola1234");
+	@Autowired
+	private UserRepository repo;
 	
-     UserController s = new UserController();
-
 	@Test
 	public void getUser() {
-		User user1 = s.getUser();
-		assertTrue(user.equals(user1));
+		assertTrue(user.getUserName().equals(repo.findUser()));
 		
 		
 	}
