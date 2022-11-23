@@ -25,6 +25,44 @@ public class BankRepository {
 		return accounts;
 	}
 
+	public List<Bank> getAccountsById(User d) {
+		List<Bank> acc = new ArrayList<>();
+		for(int i = 0; i<accounts.size(); i++) {
+			if(accounts.get(i).getUser().equals(d) && accounts.get(i).getEnable().booleanValue() == true) {
+				acc.add(accounts.get(i));
+			}
+		}
+		return acc;
+	}
+
+	public Bank createAccount(Bank account12) {
+		accounts.add(account12);
+		return account12;
+		
+	}
+
+	public void delete(Bank t) {
+		try {
+			accounts.remove(t);
+			t.setEnable(false);
+			accounts.add(t);
+		}catch(Exception e) {
+		}
+	}
+
+	public Bank getAccountById(String id) {
+		Bank b = new Bank(null, null, null, null);
+		for(int i = 0; i<accounts.size(); i++) {
+			if(accounts.get(i).getId().equals(id) && accounts.get(i).getEnable().booleanValue() == true) {
+				b = accounts.get(i);
+			}
+		}
+		return b;
+	}
+	
+	
+	
+
 
 	
 }

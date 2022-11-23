@@ -34,17 +34,17 @@ public class BankControllerTest {
 		
 		@Test
 		public void CreateAccount() {
-			Integer accounts = repo.getAccountsById(Edgar.getId()).size();
+			Integer accounts = repo.getAccountsById(Edgar).size();
 			repo.createAccount(account1);
-			assertTrue(repo.getAccountsById(Edgar.getId()).size()==accounts+1);
+			assertTrue(repo.getAccountsById(Edgar).size()==accounts+1);
 			
 		}
 		
 		@Test
 		public void deleteAccount() {
-			Integer accounts = repo.getAccountsById(Edgar.getId()).size();
+			Integer accounts = repo.getAccountsById(Edgar).size();
 			repo.delete(repo.getAccountById(account1.getId()));
-			assertTrue(repo.getAccountsById(Edgar.getId()).size()==accounts-1);
+			assertTrue(repo.getAccountsById(Edgar).size()==accounts-1);
 		}
 		
 
