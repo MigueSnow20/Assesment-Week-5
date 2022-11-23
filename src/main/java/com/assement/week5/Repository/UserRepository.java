@@ -11,8 +11,7 @@ import com.assement.week5.Models.User;
 @Repository
 public class UserRepository {
 	
-	List<User> users = Arrays.asList(new User("1", "Edgar", "Johns", "Norene39", "hola1234"), new User("2", "Arely", "kertzmann", "arelmann", "arel34"), new User("3", "Ibrahim", "Dickens", "dickhim", "Ibrdi78"));
-	
+	List<User> users;
 	
 	public List<User> getUsers(){
 		return users;
@@ -27,8 +26,18 @@ public class UserRepository {
 		return new User(null, null, null, null, null);
 	}
 	
+
+	public UserRepository(List<User> users) {
+		super();
+		this.users = new ArrayList<>(Arrays.asList(new User("1", "Edgar", "Johns", "Norene39", "hola1234"), 
+				new User("2", "Arely", "kertzmann", "arelmann", "arel34"), 
+				new User("3", "Ibrahim", "Dickens", "dickhim", "Ibrdi78")
+		));
+		
+	}
+
 	public User create(User user) {
-		users.add(user);
+		this.users.add(user);
 		return user;
 	}
 

@@ -42,6 +42,7 @@ public class BankControllerTest {
 		
 		@Test
 		public void deleteAccount() {
+			repo.getAccountsById(Edgar);
 			Integer accounts = repo.getAccountsById(Edgar).size();
 			repo.delete(repo.getAccountById(account1.getId()));
 			assertTrue(repo.getAccountsById(Edgar).size()==accounts-1);

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.assement.week5.Models.Bank;
 import com.assement.week5.Models.User;
+import com.assement.week5.Repository.UserRepository;
 
 @Repository
 public class BankRepository {
@@ -16,7 +17,17 @@ public class BankRepository {
 	@Autowired
 	private UserRepository userRepository;
 	
-	List<Bank> accounts = Arrays.asList(new Bank("qyHvfrT34Nms","Labadie Bank", 1168.00, userRepository.users.get(0)), new Bank("hty23kd3Jm7S","BBVA", 45321.00, userRepository.users.get(0)), new Bank("pt45L2S34mnA","Imagin", 96784.00, userRepository.users.get(1)));
+	List<Bank> accounts;
+	
+	public BankRepository(UserRepository userRepository) {
+		super();
+		this.accounts = new ArrayList<>(Arrays.asList(
+				new Bank("qyHvfrT34Nms","Labadie Bank", 1168.00, userRepository.users.get(0)), 
+				new Bank("hty23kd3Jm7S","BBVA", 45321.00, userRepository.users.get(0)), 
+				new Bank("pt45L2S34mnA","Imagin", 96784.00, userRepository.users.get(1))
+		));
+	}
+
 	
 	public List<Bank> getAccounts(){
 		return accounts;
@@ -25,7 +36,8 @@ public class BankRepository {
 	public List<Bank> getAccountsById(User d) {
 		List<Bank> acc = new ArrayList<>();
 		for(int i = 0; i<accounts.size(); i++) {
-			if(accounts.get(i).getUser().equals(d) && accounts.get(i).getEnable().booleanValue() == true) {
+			User s = accounts.get(i).getUser();
+			if(s.getId().equals(d.getId()) && accounts.get(i).getEnable().booleanValue() == true) {
 				acc.add(accounts.get(i));
 			}
 		}

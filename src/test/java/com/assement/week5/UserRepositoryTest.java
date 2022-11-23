@@ -17,28 +17,23 @@ import com.assement.week5.Repository.UserRepository;
 @SpringBootTest
 public class UserRepositoryTest {
 	
-	User Edgar;
+
 	
 	
 	@Autowired
 	private UserRepository repo;
 	
-	@Before
-	public void setUp() {
-	    Edgar = new User("1", "Edgar", "Johns", "Norene39", "hola1234");
-	}
-	
 	@Test
 	public void CreateUser() {
 		Integer users = repo.getUsers().size();
-		repo.create(Edgar);
+		repo.create(new User("4", "Paola", "Johns", "Norene39", "hola1234"));
 		assertTrue(repo.getUsers().size()==users+1);
 		
 	}
 	
 	@Test
 	public void UpdateUser() {
-		User user = repo.findUser(Edgar.getId());
+		User user = repo.findUser("1");
 		String username = user.getUserName();
 		user.setUsername("cambio");
 		repo.updateUser(user.getId(), user);
