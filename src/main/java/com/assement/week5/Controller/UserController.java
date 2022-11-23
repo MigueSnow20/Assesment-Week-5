@@ -22,10 +22,10 @@ public class UserController {
 	private UserService userService;
 	
 
-	@GetMapping("/user/{id}")
-	public User getUser(@PathVariable("id") String id, Model model) {
-		return userService.getUser(id);
-	}
+//	@GetMapping("/user/{id}")
+//	public User getUser(@PathVariable("id") String id, Model model) {
+//		return userService.getUser(id);
+//	}
 	
 	
 	@PostMapping("/signUp")
@@ -33,9 +33,9 @@ public class UserController {
 		return userService.createUser(user);
 	}
 	
-	@PutMapping("/user/{id}/update")
-	public User updateUser(@PathVariable("id") String id, User user, Model model) {
-		return userService.updateUser(id, user);
-	}
+//	@PutMapping("/user/{id}/update")
+//	public User updateUser(@PathVariable("id") String id, User user, Model model) {
+//		return userService.updateUser(id, user);
+//	}
 
 }

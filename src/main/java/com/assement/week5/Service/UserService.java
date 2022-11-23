@@ -13,18 +13,18 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	
-	public User getUser(String id) {
-		return userRepository.findUser(id);
-	}
-	
+//	public User getUser(String id) {
+//		return userRepository.findUser(id);
+//	}
+//	
 	public User createUser(User user) {
 		return userRepository.create(user);
 	}
-
-	public User updateUser(String id, User user) {
-		return userRepository.updateUser(id, user);
-	}
-	
+//
+//	public User updateUser(String id, User user) {
+//		return userRepository.updateUser(id, user);
+//	}
+//	
 	
 
 }
