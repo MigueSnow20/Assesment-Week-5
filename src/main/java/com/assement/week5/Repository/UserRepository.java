@@ -17,10 +17,11 @@ public class UserRepository {
 	static User user3 = new User("jT3NS67K9op1", "Ibrahim", "Dickens", "dickhim", "Ibrdi78");
 	
 	public List<User> getUsers(){
-		return new ArrayList<>();
+		return users;
 	}
 	
 	public User create(User user) {
+		users.add(user);
 		return user;
 	}
 

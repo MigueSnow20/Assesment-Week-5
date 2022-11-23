@@ -30,7 +30,7 @@ public class UserRepositoryTest {
 	public void CreateUser() {
 		Integer users = repo.getUsers().size();
 		repo.create(Edgar);
-		assertTrue(users.compareTo(repo.getUsers().size())>0);
+		assertTrue(repo.getUsers().size()==users+1);
 		
 	}
 	
